@@ -1,0 +1,12 @@
+services:
+  app:
+    container_name: viajes_front_end
+    build:
+      context: .
+    restart: 'no'
+    command: npm run dev
+    volumes:
+      - .:/var/www/html/app
+      - /var/www/html/app/node_modules
+    ports:
+      - '8000:8000'

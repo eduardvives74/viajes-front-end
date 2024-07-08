@@ -1,0 +1,215 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: rgb(243, 242, 246);
+}
+
+.container {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.titulo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.errorMessage {
+  border: 2px solid red;
+  padding: 0.5rem 1rem;
+  background-color: rgba($color: red, $alpha: 0.5);
+  box-shadow: 0 0 20px rgba($color: #000000, $alpha: 0.3);
+}
+
+#listaViajes {
+  .lista-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .header,
+  .item-viaje {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    .inicio {
+      width: calc(30% - (3rem / 4));
+    }
+    .fin {
+      width: calc(30% - (3rem / 4));
+    }
+    .vuelo {
+      width: calc(22% - (3rem / 4));
+    }
+    .link {
+      width: calc(18% - (3rem / 4));
+    }
+  }
+
+  .header {
+    .inicio,
+    .fin,
+    .link {
+      padding: 0 0.75rem;
+    }
+  }
+
+  .item-viaje {
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba($color: #000, $alpha: 0.2);
+    .inicio,
+    .fin,
+    .vuelo,
+    .link {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem 0.75rem;
+    }
+
+    .direccion {
+      font-weight: 700;
+    }
+  }
+}
+
+.button {
+  display: flex;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  background: none;
+  color: #10439f;
+  cursor: pointer;
+  position: relative;
+  padding: 8px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.15s ease;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: calc(50% - 5px);
+    border: 1px solid #7d8082;
+    transition: all 0.15s ease;
+  }
+
+  &::before {
+    top: 0;
+    border-bottom-width: 0;
+  }
+
+  &::after {
+    bottom: 0;
+    border-top-width: 0;
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+
+  &:active::before,
+  &:active::after {
+    right: 3px;
+    left: 3px;
+  }
+
+  &:active::before {
+    top: 3px;
+  }
+
+  &:active::after {
+    bottom: 3px;
+  }
+
+  &:hover {
+    color: #10439f;
+
+    .button_sl {
+      width: calc(100% + 15px);
+    }
+    .button_lg {
+      &::after {
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+.button_lg {
+  width: 100%;
+  position: relative;
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #10439f;
+  overflow: hidden;
+  box-shadow: inset 0px 0px 0px 1px transparent;
+
+  ::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    background-color: #10439f;
+  }
+  ::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 4px;
+    height: 4px;
+    background-color: #10439f;
+    transition: all 0.2s ease;
+  }
+}
+
+.button_sl {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: -1px;
+  left: -8px;
+  width: 0;
+  background-color: #c65bcf;
+  transform: skew(-15deg);
+  transition: all 0.2s ease;
+}
+
+.button_text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  position: relative;
+  .icon {
+    width: 20px;
+    height: 20px;
+    fill: white;
+  }
+}
